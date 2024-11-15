@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Form Validation</title>
   </head>
-  <body></body>
+  <body>
+    <form id="form" novalidate>
+      <label for="email-input">Email</label>
+      <input type="email" name="email-input" id="email-input" required />
+      <label for="country-input">Country</label>
+      <input type="text" name="country-input" id="country-input" required />
+      <label for="zip-code-input">Zip Code</label>
+      <input type="tel" name="zip-code-input" id="zip-code-input" required />
+      <label for="password-input">Password</label>
+      <input
+        type="password"
+        name="password-input"
+        id="password-input"
+        minlength="8"
+        required
+      />
+      <label for="password-confirmation-input">Confirm Password</label>
+      <input
+        type="password"
+        name="password-confirmation-input"
+        id="password-confirmation-input"
+        required
+      />
+      <button id="form-submit-button">Submit</button>
+    </form>
+  </body>
 </html>
