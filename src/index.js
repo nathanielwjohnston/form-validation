@@ -11,9 +11,15 @@ country.addEventListener("input", () => {
   validation.validateCountry();
 });
 
+const zipCode = document.querySelector("#zip-code-input");
+zipCode.addEventListener("input", () => {
+  validation.validateZipCode();
+});
+
 const submitButton = document.querySelector("#form-submit-button");
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
   validation.validateEmail();
   validation.validateCountry();
+  validation.validateZipCode();
 });

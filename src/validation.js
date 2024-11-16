@@ -32,4 +32,24 @@ function validateCountry() {
   validationMessageDisplay.textContent = input.validationMessage;
 }
 
-export { validateEmail, validateCountry };
+function validateZipCode() {
+  const input = document.querySelector("#zip-code-input");
+  const validationMessageDisplay = document.querySelector(
+    "#zip-code-validation-message",
+  );
+
+  input.setCustomValidity("");
+
+  if (input.validity.patternMismatch) {
+    const code = input.value;
+    if (code.length < 5) {
+      input.setCustomValidity("Your zip code has too few numbers");
+    }
+  } else if (input.validity.valueMissing) {
+    input.setCustomValidity("Input missing");
+  }
+
+  validationMessageDisplay.textContent = input.validationMessage;
+}
+
+export { validateEmail, validateCountry, validateZipCode };
