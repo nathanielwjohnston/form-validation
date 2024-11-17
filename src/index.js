@@ -19,6 +19,7 @@ zipCode.addEventListener("input", () => {
 const password = document.querySelector("#password-input");
 password.addEventListener("input", () => {
   validation.validatePassword();
+  validation.validatePasswordConfirmation();
 });
 
 const passwordConfirmation = document.querySelector(
@@ -26,14 +27,24 @@ const passwordConfirmation = document.querySelector(
 );
 passwordConfirmation.addEventListener("input", () => {
   validation.validatePasswordConfirmation();
+  validation.validatePassword();
 });
 
 const submitButton = document.querySelector("#form-submit-button");
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
-  validation.validateEmail();
-  validation.validateCountry();
-  validation.validateZipCode();
-  validation.validatePassword();
-  validation.validatePasswordConfirmation();
+  const validations = [
+    validation.validateEmail,
+    validation.validateCountry,
+    validation.validateZipCode,
+    validation.validatePassword,
+    validation.validatePasswordConfirmation,
+  ];
+
+  const validInputs = validations.filter((validation) => validation());
+  if (validInputs.length === validations.length) {
+    alert("High five!");
+  } else {
+    alert("Not there yet");
+  }
 });
