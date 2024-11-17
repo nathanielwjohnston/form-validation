@@ -68,7 +68,33 @@ function validatePassword() {
       input.setCustomValidity("Your password is not long enough");
     }
   }
+
   validationMessageDisplay.textContent = input.validationMessage;
 }
 
-export { validateEmail, validateCountry, validateZipCode, validatePassword };
+function validatePasswordConfirmation() {
+  const input = document.querySelector("#password-confirmation-input");
+  const validationMessageDisplay = document.querySelector(
+    "#password-confirmation-validation-message",
+  );
+
+  input.setCustomValidity("");
+
+  const password = document.querySelector("#password-input").value;
+  const passwordConfirmation = input.value;
+  if (input.validity.valueMissing) {
+    input.setCustomValidity("Input missing");
+  } else if (passwordConfirmation !== password) {
+    input.setCustomValidity("These passwords do not match");
+  }
+
+  validationMessageDisplay.textContent = input.validationMessage;
+}
+
+export {
+  validateEmail,
+  validateCountry,
+  validateZipCode,
+  validatePassword,
+  validatePasswordConfirmation,
+};

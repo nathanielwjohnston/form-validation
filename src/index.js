@@ -21,6 +21,13 @@ password.addEventListener("input", () => {
   validation.validatePassword();
 });
 
+const passwordConfirmation = document.querySelector(
+  "#password-confirmation-input",
+);
+passwordConfirmation.addEventListener("input", () => {
+  validation.validatePasswordConfirmation();
+});
+
 const submitButton = document.querySelector("#form-submit-button");
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
@@ -28,4 +35,5 @@ submitButton.addEventListener("click", (e) => {
   validation.validateCountry();
   validation.validateZipCode();
   validation.validatePassword();
+  validation.validatePasswordConfirmation();
 });
