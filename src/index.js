@@ -16,10 +16,16 @@ zipCode.addEventListener("input", () => {
   validation.validateZipCode();
 });
 
+const password = document.querySelector("#password-input");
+password.addEventListener("input", () => {
+  validation.validatePassword();
+});
+
 const submitButton = document.querySelector("#form-submit-button");
 submitButton.addEventListener("click", (e) => {
   e.preventDefault();
   validation.validateEmail();
   validation.validateCountry();
   validation.validateZipCode();
+  validation.validatePassword();
 });

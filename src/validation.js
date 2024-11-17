@@ -52,4 +52,23 @@ function validateZipCode() {
   validationMessageDisplay.textContent = input.validationMessage;
 }
 
-export { validateEmail, validateCountry, validateZipCode };
+function validatePassword() {
+  const input = document.querySelector("#password-input");
+  const validationMessageDisplay = document.querySelector(
+    "#password-validation-message",
+  );
+
+  input.setCustomValidity("");
+
+  if (input.validity.valueMissing) {
+    input.setCustomValidity("Input missing");
+  } else if (!input.validity.valid) {
+    const password = input.value;
+    if (password.length < 8) {
+      input.setCustomValidity("Your password is not long enough");
+    }
+  }
+  validationMessageDisplay.textContent = input.validationMessage;
+}
+
+export { validateEmail, validateCountry, validateZipCode, validatePassword };
